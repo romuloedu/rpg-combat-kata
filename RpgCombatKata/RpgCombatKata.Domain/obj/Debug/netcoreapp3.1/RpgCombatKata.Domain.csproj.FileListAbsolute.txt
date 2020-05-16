@@ -6,3 +6,4 @@
 /Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain/obj/Debug/netcoreapp3.1/RpgCombatKata.Domain.AssemblyInfo.cs
 /Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain/obj/Debug/netcoreapp3.1/RpgCombatKata.Domain.dll
 /Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain/obj/Debug/netcoreapp3.1/RpgCombatKata.Domain.pdb
+/Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain/obj/Debug/netcoreapp3.1/RpgCombatKata.Domain.csprojAssemblyReference.cache

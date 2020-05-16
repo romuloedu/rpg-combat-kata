@@ -12,22 +12,33 @@ namespace RpgCombatKata.Domain.Services
         /// <param name="damagePoints"></param>
         /// <param name="attacker"></param>
         /// <param name="target"></param>
-        public void Attack(uint damagePoints, Character attacker,
+        public void Attack(float damagePoints, Character attacker,
             Character target)
         {
+            if (attacker.Equals(target)) return;
+
+            damagePoints *= CalculateHitThreshold(attacker, target);
+
             target.SetDamage(damagePoints);
         }
 
-        /// <summary>
-        /// Cure the health of a character.
-        /// </summary>
-        /// <param name="healthPoints"></param>
-        /// <param name="healer"></param>
-        /// <param name="target"></param>
-        public void Cure(uint healthPoints, Character healer,
+        public float CalculateHitThreshold(Character attacker,
             Character target)
         {
-            target.SetHeal(healthPoints);
+            int differenceLevel = (int)target.Level - (int)attacker.Level;
+
+            if (differenceLevel >= 5)
+            {
+                return 0.5F;
+            }
+            else if (differenceLevel <= -5)
+            {
+                return 1.5F;
+            }
+            else
+            {
+                return 1.0F;
+            }
         }
     }
 }

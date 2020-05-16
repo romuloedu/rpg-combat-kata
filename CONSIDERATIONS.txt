@@ -1,4 +1,11 @@
-﻿----- INTERAÇÃO 1 -----
+﻿----- ITERAÇÃO 1 -----
 
 - Os métodos de Cura e Ataque poderiam existir dentro da classe "Character" normalmente visto que a lógica deles ainda não é complexa.
 Entretanto, desmembrei esse objeto e implementei o "MovementsDomainService" para demonstrar a utilização de Serviços do Domínio (DDD).
+
+----- ITERAÇÃO 2 -----
+
+- Alterei o campo HealthPoints para o tipo float visto que, com o cálculo do percentual de dano,
+o valor dos pontos poderá conter decimais.
+
+- Optei por float por não ser necessário altíssima precisão nos dados em questão.

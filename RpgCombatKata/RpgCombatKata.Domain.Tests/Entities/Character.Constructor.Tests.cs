@@ -11,7 +11,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         {
             Character sut = new Character();
 
-            Assert.Equal<uint>(1000, sut.HealthPoints);
+            Assert.Equal(1000, sut.HealthPoints);
         }
 
         [Fact]

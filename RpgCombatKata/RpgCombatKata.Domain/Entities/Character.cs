@@ -7,7 +7,7 @@ namespace RpgCombatKata.Domain.Entities
         /// <summary>
         /// Character health points.
         /// </summary>
-        public uint HealthPoints
+        public float HealthPoints
         {
             get;
             private set;
@@ -25,7 +25,7 @@ namespace RpgCombatKata.Domain.Entities
         /// <summary>
         /// Indicates the strength level of the character.
         /// </summary>
-        public uint Level
+        public virtual uint Level
         {
             get;
             private set;
@@ -39,9 +39,9 @@ namespace RpgCombatKata.Domain.Entities
         }
 
         // Implements the damage hit business logic.
-        public void SetDamage(uint damagePoints)
+        public void SetDamage(float damagePoints)
         {
-            if(damagePoints >= 1000)
+            if (damagePoints >= 1000)
             {
                 HealthPoints = 0;
                 IsAlive = false;
@@ -52,11 +52,11 @@ namespace RpgCombatKata.Domain.Entities
         }
 
         // Implements the cure business logic.
-        public void SetHeal(uint healthPoints)
+        public void SetHeal(float healthPoints)
         {
             if (!IsAlive) return;
 
-            if((HealthPoints + healthPoints) > 1000)
+            if ((HealthPoints + healthPoints) > 1000)
             {
                 HealthPoints = 1000;
                 return;

@@ -96,3 +96,5 @@
 /Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain.Tests/obj/Debug/netcoreapp3.1/RpgCombatKata.Domain.Tests.dll
 /Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain.Tests/obj/Debug/netcoreapp3.1/RpgCombatKata.Domain.Tests.pdb
 /Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain.Tests/obj/Debug/netcoreapp3.1/RpgCombatKata.Domain.Tests.genruntimeconfig.cache
+/Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain.Tests/bin/Debug/netcoreapp3.1/Castle.Core.dll
+/Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain.Tests/bin/Debug/netcoreapp3.1/Moq.dll

@@ -14,7 +14,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
             sut.SetDamage(500);
             sut.SetHeal(100);
 
-            Assert.Equal<uint>(600, sut.HealthPoints);
+            Assert.Equal(600, sut.HealthPoints);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
             sut.SetDamage(1100);
             sut.SetHeal(100);
 
-            Assert.Equal<uint>(0, sut.HealthPoints);
+            Assert.Equal(0, sut.HealthPoints);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
 
             sut.SetHeal(100);
 
-            Assert.Equal<uint>(1000, sut.HealthPoints);
+            Assert.Equal(1000, sut.HealthPoints);
         }
     }
 }

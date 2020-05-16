@@ -16,7 +16,20 @@ namespace RpgCombatKata.Domain.Services.Tests
 
             sut.Attack(100, me, enemy);
 
-            Assert.Equal<uint>(900, enemy.HealthPoints);
+            Assert.Equal(900, enemy.HealthPoints);
+        }
+
+
+        [Fact]
+        public void Attack_WhenAttacksHerself_ReturnsUnalteredHealth()
+        {
+            Character me = new Character();
+
+            MovementsDomainService sut = new MovementsDomainService();
+
+            sut.Attack(100, me, me);
+
+            Assert.Equal(1000, me.HealthPoints);
         }
     }
 }
