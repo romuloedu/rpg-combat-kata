@@ -1,0 +1,4 @@
+﻿----- INTERAÇÃO 1 -----
+
+- Os métodos de Cura e Ataque poderiam existir dentro da classe "Character" normalmente visto que a lógica deles ainda não é complexa.
+Entretanto, desmembrei esse objeto e implementei o "MovementsDomainService" para demonstrar a utilização de Serviços do Domínio (DDD).

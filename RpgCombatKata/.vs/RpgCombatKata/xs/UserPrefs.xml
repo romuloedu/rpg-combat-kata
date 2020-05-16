@@ -1,0 +1,47 @@
+﻿<Properties StartupConfiguration="{0938FFE9-768C-404F-AEFE-FB464724AFA0}|Testes de Unidade">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RpgCombatKata.Domain.Tests/Services/MovementsDomainService.Attack (copiar).Tests.cs">
+    <Files>
+      <File FileName="RpgCombatKata.Domain/Services/MovementsDomainService.cs" Line="22" Column="44" />
+      <File FileName="RpgCombatKata.Domain.Tests/Services/MovementsDomainService.Tests.cs" Line="23" Column="2" />
+      <File FileName="RpgCombatKata.Domain.Tests/Services/MovementsDomainService.Attack (copiar).Tests.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RpgCombatKata" expanded="True">
+            <Node name="Solution Items" expanded="True" />
+            <Node name="RpgCombatKata.Domain" expanded="True">
+              <Node name="Entities" expanded="True" />
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="RpgCombatKata.Domain.Tests" expanded="True">
+              <Node name="Entities" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="MovementsDomainService.Attack (copiar).Tests.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="RpgCombatKata" expanded="True">
+            <Node name="RpgCombatKata.Domain.Tests" expanded="True">
+              <Node name="RpgCombatKata.Domain.Services.Tests" expanded="True">
+                <Node name="MovementsDomainServiceTests" expanded="True" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.RpgCombatKata.Domain.Tests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
