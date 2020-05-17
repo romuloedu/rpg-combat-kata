@@ -1,5 +1,4 @@
-﻿using System;
-using RpgCombatKata.Domain.Entities;
+﻿using RpgCombatKata.Domain.Entities;
 using RpgCombatKata.Domain.Fakes.Tests;
 using Xunit;
 
@@ -7,35 +6,8 @@ namespace RpgCombatKata.Domain.Services.Tests
 {
     public partial class MovementsDomainServiceTests
     {
-
         [Fact]
-        public void Attack_WhenCauseDamageToAnotherCharacter_ReturnsSubtractedHealth()
-        {
-            FakeRangedCharacter me = new FakeRangedCharacter();
-            FakeRangedCharacter enemy = new FakeRangedCharacter();
-
-            MovementsDomainService sut = new MovementsDomainService();
-
-            sut.Attack(100, me, enemy);
-
-            Assert.Equal(900, enemy.HealthPoints);
-        }
-
-
-        [Fact]
-        public void Attack_WhenAttacksHerself_ReturnsUnalteredHealth()
-        {
-            FakeRangedCharacter me = new FakeRangedCharacter();
-
-            MovementsDomainService sut = new MovementsDomainService();
-
-            sut.Attack(100, me, me);
-
-            Assert.Equal(1000, me.HealthPoints);
-        }
-
-        [Fact]
-        public void Attack_WhenCharactersAreAllies_ReturnsUnalteredHealth()
+        public void HasAllyFaction_WhenCharactersAreAllies_ReturnsTrue()
         {
             Faction faction = new Faction(1);
             Faction faction2 = new Faction(2);
@@ -51,13 +23,13 @@ namespace RpgCombatKata.Domain.Services.Tests
 
             MovementsDomainService sut = new MovementsDomainService();
 
-            sut.Attack(100, character, character2);
+            bool result = sut.HasAllyFaction(character, character2);
 
-            Assert.Equal(1000, character2.HealthPoints);
+            Assert.True(result);
         }
 
         [Fact]
-        public void Attack_WhenCharactersArentAllies_ReturnsSubtractedHealth()
+        public void HasAllyFaction_WhenCharactersArentAllies_ReturnsFalse()
         {
             Faction faction = new Faction(1);
             Faction faction2 = new Faction(2);
@@ -70,9 +42,9 @@ namespace RpgCombatKata.Domain.Services.Tests
 
             MovementsDomainService sut = new MovementsDomainService();
 
-            sut.Attack(100, character, character2);
+            bool result = sut.HasAllyFaction(character, character2);
 
-            Assert.Equal(900, character2.HealthPoints);
+            Assert.False(result);
         }
     }
 }

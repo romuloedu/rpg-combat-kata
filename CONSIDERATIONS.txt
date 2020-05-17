@@ -37,3 +37,17 @@ da lógica no teste, vou usar somente a coordenada x.
 no roteiro da iteração. Entretanto, usei testes do tipo Theory onde pude repassar
 vários que contemplam alguns cenários para verificar se a lógica de verificação
 de inimigo dentro ou fora do raio estava correta.
+
+----- ITERAÇÃO 4 -----
+
+- O ideal seria isolar toda a lógica de "Factions" em sua própria classe e
+serviço do domínio específico. Porém, por não implementar repositório de persistência
+nesse códgio, estou migrando toda a lógica para a classe de Characters mesmo.
+
+- Na classe Character eu inicializo a lista de Factions com um IList. Porém,
+o ideal seria utilizar HashSet para otimizar a busca e o agrupamento de entidades
+em memória. Não o fiz, neste momento, para não aumentar a complexidade. 
+Fica para refatoração posterior.
+
+- No mundo ideal, a classe MovementDomainService deveria quebrar as responsabilidades
+em classes menores. Atualmente ela está com mais de uma responsabilidade.

@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using RpgCombatKata.Domain.Interfaces;
 
 namespace RpgCombatKata.Domain.Entities
 {
     public abstract class Character : ICharacter
     {
+        private List<Faction> _factions = new List<Faction>();
+
         /// <summary>
         /// Character health points.
         /// </summary>
@@ -30,6 +33,14 @@ namespace RpgCombatKata.Domain.Entities
         {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// List containing the factions that the character belongs.
+        /// </summary>
+        public IReadOnlyCollection<Faction> Factions
+        {
+            get { return _factions.AsReadOnly(); }
         }
 
         public Character()
@@ -64,6 +75,20 @@ namespace RpgCombatKata.Domain.Entities
             }
 
             HealthPoints += healthPoints;
+        }
+
+        public void JoinFaction(Faction faction)
+        {
+            if (faction == null) throw new NullReferenceException();
+
+            _factions.Add(faction);
+        }
+
+        public void LeaveFaction(Faction faction)
+        {
+            if (faction == null) throw new NullReferenceException();
+
+            _factions.Remove(faction);
         }
     }
 }

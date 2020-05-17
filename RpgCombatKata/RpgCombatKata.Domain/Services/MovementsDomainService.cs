@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using RpgCombatKata.Domain.Entities;
 using RpgCombatKata.Domain.Interfaces;
 
@@ -16,7 +17,8 @@ namespace RpgCombatKata.Domain.Services
             IRangedCharacter target)
         {
             if (attacker.Equals(target)
-            || !EnemyIsOnRange(attacker, target)) return;
+            || !EnemyIsOnRange(attacker, target)
+            || HasAllyFaction(attacker, target)) return;
 
             damagePoints *= CalculateHitThreshold(attacker, target);
 
@@ -52,6 +54,23 @@ namespace RpgCombatKata.Domain.Services
             bool isOnRange = attacker.Range >= differencePosition;
 
             return isOnRange;
+        }
+
+        public bool HasAllyFaction(IRangedCharacter attacker,
+            IRangedCharacter target)
+        {
+            // Use LINQ to intersect list and verify factions that match.
+            return attacker.Factions
+            .Intersect(target.Factions)
+            .Any();
+        }
+
+        public void Heal(float healthPoints, IRangedCharacter healer,
+            IRangedCharacter target)
+        {
+            if (!HasAllyFaction(healer, target)) return;
+
+            target.SetHeal(healthPoints);
         }
     }
 }

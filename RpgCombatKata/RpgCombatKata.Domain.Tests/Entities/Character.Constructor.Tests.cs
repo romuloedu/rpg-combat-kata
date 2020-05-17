@@ -28,5 +28,14 @@ namespace RpgCombatKata.Domain.Entities.Tests
 
             Assert.True(sut.IsAlive);
         }
+
+        [Fact]
+        public void Constructor_WhenInstanceIsCreated_ReturnsNotNullListOfFaction()
+        {
+            FakeCharacter sut = new FakeCharacter();
+
+            // BAD SMELL.
+            Assert.NotNull(sut.Factions);
+        }
     }
 }
