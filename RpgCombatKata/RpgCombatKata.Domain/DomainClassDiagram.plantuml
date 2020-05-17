@@ -1,0 +1,62 @@
+@startuml
+scale 1
+
+interface ILivingThing {
+    HealthPoints: float
+    SetDamage(int damagePoints): void
+}
+
+abstract class Character {
+    +Level: int
+    +IsAlive: bool
+    {abstract} +MaxRange: uint
+    +Position: MapPosition
+    +Factions: List<Faction>
+    +SetRegeneration(float healthPoints): void
+    +JoinFaction(Faction faction): void
+    +LeaveFaction(Faction faction): void
+}
+
+class Thing {
+    +IsDestroyed: bool
+}
+
+class AttackService {
+    +Attack(float damage, Character attacker, ILivingThing target): void
+}
+
+class HealService {
+    +Heal(float healthPoints, Character healer, Character target): void
+}
+
+class PositionService {
+    +IsInRange(Character attacker, Character target): bool
+}
+
+class FactionService {
+    +IsAllies(Character character1, Character character2): bool
+}
+
+class MeeleCharacter {
+
+}
+
+class OtherCharacter {
+
+}
+
+class Faction {
+    +Id: int
+}
+
+class MapPosition {
+    +X: uint
+}
+
+ILivingThing <|-- Character
+ILivingThing <|-- Thing
+Character <|-- MeeleCharacter
+Character <|-- OtherCharacter
+MapPosition o-- Character
+Faction "*" o-- "*" Character
+@enduml

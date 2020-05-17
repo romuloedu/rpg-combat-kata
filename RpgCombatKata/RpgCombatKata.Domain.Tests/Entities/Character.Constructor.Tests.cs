@@ -37,5 +37,21 @@ namespace RpgCombatKata.Domain.Entities.Tests
             // BAD SMELL.
             Assert.NotNull(sut.Factions);
         }
+
+        [Fact]
+        public void Constructor_WhenInstanceIsCreated_ReturnsPositionAsNotNull()
+        {
+            FakeCharacter sut = new FakeCharacter();
+
+            Assert.NotNull(sut.Position);
+        }
+
+        [Fact]
+        public void Constructor_WhenInstanceIsCreated_ReturnsPositionXAs0()
+        {
+            FakeCharacter sut = new FakeCharacter();
+
+            Assert.Equal<uint>(0, sut.Position.X);
+        }
     }
 }

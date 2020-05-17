@@ -51,3 +51,7 @@ Fica para refatoração posterior.
 
 - No mundo ideal, a classe MovementDomainService deveria quebrar as responsabilidades
 em classes menores. Atualmente ela está com mais de uma responsabilidade.
+
+----- ITERAÇÃO 5 -----
+
+- Criei um diagrama de classes para auxiliar na refatoração dessa última iteração.

@@ -5,14 +5,14 @@ using Xunit;
 
 namespace RpgCombatKata.Domain.Services.Tests
 {
-    public partial class MovementsDomainServiceTests
+    public class HealServiceTests
     {
         [Fact]
         public void Heal_WhenHealsHerself_ReturnsUnalteredHealth()
         {
-            FakeRangedCharacter me = new FakeRangedCharacter();
+            FakeCharacter me = new FakeCharacter();
 
-            MovementsDomainService sut = new MovementsDomainService();
+            HealService sut = new HealService();
 
             sut.Heal(100, me, me);
 
@@ -25,18 +25,15 @@ namespace RpgCombatKata.Domain.Services.Tests
             Faction faction = new Faction(1);
             Faction faction2 = new Faction(2);
 
-            FakeRangedCharacter ally = new FakeRangedCharacter();
+            FakeCharacter ally = new FakeCharacter();
+            ally.SetDamage(100);
             ally.JoinFaction(faction);
 
-            FakeRangedCharacter ally2 = new FakeRangedCharacter();
+            FakeCharacter ally2 = new FakeCharacter();
             ally2.JoinFaction(faction);
 
-            FakeRangedCharacter enemy = new FakeRangedCharacter();
-            ally2.JoinFaction(faction2);
+            HealService sut = new HealService();
 
-            MovementsDomainService sut = new MovementsDomainService();
-
-            sut.Attack(100, enemy, ally);
             sut.Heal(100, ally2, ally);
 
             Assert.Equal(1000, ally.HealthPoints);
@@ -48,18 +45,18 @@ namespace RpgCombatKata.Domain.Services.Tests
             Faction faction = new Faction(1);
             Faction faction2 = new Faction(2);
 
-            FakeRangedCharacter ally = new FakeRangedCharacter();
+            FakeCharacter ally = new FakeCharacter();
             ally.JoinFaction(faction);
 
-            FakeRangedCharacter enemy = new FakeRangedCharacter();
+            FakeCharacter enemy = new FakeCharacter();
+            enemy.SetDamage(100);
             enemy.JoinFaction(faction2);
 
-            MovementsDomainService sut = new MovementsDomainService();
+            HealService sut = new HealService();
 
-            sut.Attack(200, ally, enemy);
             sut.Heal(100, ally, enemy);
 
-            Assert.Equal(800, enemy.HealthPoints);
+            Assert.Equal(900, enemy.HealthPoints);
         }
     }
 }

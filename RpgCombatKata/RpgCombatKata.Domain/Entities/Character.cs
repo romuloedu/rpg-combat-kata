@@ -4,7 +4,7 @@ using RpgCombatKata.Domain.Interfaces;
 
 namespace RpgCombatKata.Domain.Entities
 {
-    public abstract class Character : ICharacter
+    public abstract class Character : ILivingThing
     {
         private List<Faction> _factions = new List<Faction>();
 
@@ -29,7 +29,7 @@ namespace RpgCombatKata.Domain.Entities
         /// <summary>
         /// Indicates the strength level of the character.
         /// </summary>
-        public uint Level
+        public virtual uint Level
         {
             get;
             private set;
@@ -43,11 +43,23 @@ namespace RpgCombatKata.Domain.Entities
             get { return _factions.AsReadOnly(); }
         }
 
+        public abstract uint MaxRange
+        {
+            get;
+        }
+
+        public MapPosition Position
+        {
+            get;
+            private set;
+        }
+
         public Character()
         {
             Level = 1;
             IsAlive = true;
             HealthPoints = 1000;
+            Position = new MapPosition();
         }
 
         // Implements the damage hit business logic.
@@ -64,7 +76,7 @@ namespace RpgCombatKata.Domain.Entities
         }
 
         // Implements the cure business logic.
-        public void SetHeal(float healthPoints)
+        public void SetRegeneration(float healthPoints)
         {
             if (!IsAlive) return;
 

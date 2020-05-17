@@ -5,29 +5,27 @@ using Xunit;
 
 namespace RpgCombatKata.Domain.Services.Tests
 {
-    public partial class MovementsDomainServiceTests
+    public partial class AttackServiceTests
     {
-
         [Fact]
         public void Attack_WhenCauseDamageToAnotherCharacter_ReturnsSubtractedHealth()
         {
-            FakeRangedCharacter me = new FakeRangedCharacter();
-            FakeRangedCharacter enemy = new FakeRangedCharacter();
+            FakeCharacter me = new FakeCharacter();
+            FakeCharacter enemy = new FakeCharacter();
 
-            MovementsDomainService sut = new MovementsDomainService();
+            AttackService sut = new AttackService();
 
             sut.Attack(100, me, enemy);
 
             Assert.Equal(900, enemy.HealthPoints);
         }
 
-
         [Fact]
         public void Attack_WhenAttacksHerself_ReturnsUnalteredHealth()
         {
-            FakeRangedCharacter me = new FakeRangedCharacter();
+            FakeCharacter me = new FakeCharacter();
 
-            MovementsDomainService sut = new MovementsDomainService();
+            AttackService sut = new AttackService();
 
             sut.Attack(100, me, me);
 
@@ -41,15 +39,15 @@ namespace RpgCombatKata.Domain.Services.Tests
             Faction faction2 = new Faction(2);
             Faction faction3 = new Faction(3);
 
-            FakeRangedCharacter character = new FakeRangedCharacter();
+            FakeCharacter character = new FakeCharacter();
             character.JoinFaction(faction3);
 
-            FakeRangedCharacter character2 = new FakeRangedCharacter();
+            FakeCharacter character2 = new FakeCharacter();
             character2.JoinFaction(faction);
             character2.JoinFaction(faction2);
             character2.JoinFaction(faction3);
 
-            MovementsDomainService sut = new MovementsDomainService();
+            AttackService sut = new AttackService();
 
             sut.Attack(100, character, character2);
 
@@ -62,17 +60,30 @@ namespace RpgCombatKata.Domain.Services.Tests
             Faction faction = new Faction(1);
             Faction faction2 = new Faction(2);
 
-            FakeRangedCharacter character = new FakeRangedCharacter();
+            FakeCharacter character = new FakeCharacter();
             character.JoinFaction(faction);
 
-            FakeRangedCharacter character2 = new FakeRangedCharacter();
+            FakeCharacter character2 = new FakeCharacter();
             character2.JoinFaction(faction2);
 
-            MovementsDomainService sut = new MovementsDomainService();
+            AttackService sut = new AttackService();
 
             sut.Attack(100, character, character2);
 
             Assert.Equal(900, character2.HealthPoints);
+        }
+
+        [Fact]
+        public void Attack_WhenCauseDamageToAThing_ReturnsSubtractedHealth()
+        {
+            FakeCharacter me = new FakeCharacter();
+            Thing enemy = new Thing(1000);
+
+            AttackService sut = new AttackService();
+
+            sut.Attack(100, me, enemy);
+
+            Assert.Equal(900, enemy.HealthPoints);
         }
     }
 }

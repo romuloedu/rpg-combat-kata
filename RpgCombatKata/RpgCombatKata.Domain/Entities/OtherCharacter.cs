@@ -3,14 +3,14 @@ using RpgCombatKata.Domain.Interfaces;
 
 namespace RpgCombatKata.Domain.Entities
 {
-    public class MeleeCharacter : Character
+    public class OtherCharacter : Character
     {
         /// <summary>
         ///  The attacke range alcance.
         /// </summary>
         public override uint MaxRange
         {
-            get { return 2; }
+            get { return 20; }
         }
     }
 }

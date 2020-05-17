@@ -4,47 +4,48 @@ using Xunit;
 
 namespace RpgCombatKata.Domain.Services.Tests
 {
-    public partial class MovementsDomainServiceTests
+    public class FactionServiceTests
     {
         [Fact]
-        public void HasAllyFaction_WhenCharactersAreAllies_ReturnsTrue()
+        public void IsAllies_WhenCharactersAreAllies_ReturnsTrue()
         {
             Faction faction = new Faction(1);
             Faction faction2 = new Faction(2);
             Faction faction3 = new Faction(3);
 
-            FakeRangedCharacter character = new FakeRangedCharacter();
+            FakeCharacter character = new FakeCharacter();
             character.JoinFaction(faction3);
 
-            FakeRangedCharacter character2 = new FakeRangedCharacter();
+            FakeCharacter character2 = new FakeCharacter();
             character2.JoinFaction(faction);
             character2.JoinFaction(faction2);
             character2.JoinFaction(faction3);
 
-            MovementsDomainService sut = new MovementsDomainService();
+            FactionService sut = new FactionService();
 
-            bool result = sut.HasAllyFaction(character, character2);
+            bool result = sut.IsAllies(character, character2);
 
             Assert.True(result);
         }
 
         [Fact]
-        public void HasAllyFaction_WhenCharactersArentAllies_ReturnsFalse()
+        public void IsAllies_WhenCharactersArentAllies_ReturnsFalse()
         {
             Faction faction = new Faction(1);
             Faction faction2 = new Faction(2);
 
-            FakeRangedCharacter character = new FakeRangedCharacter();
+            FakeCharacter character = new FakeCharacter();
             character.JoinFaction(faction);
 
-            FakeRangedCharacter character2 = new FakeRangedCharacter();
+            FakeCharacter character2 = new FakeCharacter();
             character2.JoinFaction(faction2);
 
-            MovementsDomainService sut = new MovementsDomainService();
+            FactionService sut = new FactionService();
 
-            bool result = sut.HasAllyFaction(character, character2);
+            bool result = sut.IsAllies(character, character2);
 
             Assert.False(result);
         }
     }
 }
+
