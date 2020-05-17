@@ -5,10 +5,13 @@ namespace RpgCombatKata.Domain.Interfaces
 {
     public interface IMovementsDomainService
     {
-        void Attack(float damagePoints, Character attacker,
-            Character target);
+        void Attack(float damagePoints, IRangedCharacter attacker,
+            IRangedCharacter target);
 
-        float CalculateHitThreshold(Character attacker,
-            Character target);
+        float CalculateHitThreshold(ICharacter attacker,
+            ICharacter target);
+
+        bool EnemyIsOnRange(IRangedCharacter attacker,
+            IRangedCharacter target);
     }
 }

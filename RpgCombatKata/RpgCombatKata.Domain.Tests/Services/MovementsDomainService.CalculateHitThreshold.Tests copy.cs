@@ -1,6 +1,7 @@
 ﻿using System;
 using Moq;
 using RpgCombatKata.Domain.Entities;
+using RpgCombatKata.Domain.Interfaces;
 using Xunit;
 
 namespace RpgCombatKata.Domain.Services.Tests
@@ -10,10 +11,10 @@ namespace RpgCombatKata.Domain.Services.Tests
         [Fact]
         public void CalculateHitThreshold_WhenEnemyLevelIsGreaterThan5_ReturnsHigherThreshold()
         {
-            Mock<Character> attacker = new Mock<Character>();
+            Mock<ICharacter> attacker = new Mock<ICharacter>();
             attacker.Setup(x => x.Level).Returns(11);
 
-            Mock<Character> enemy = new Mock<Character>();
+            Mock<ICharacter> enemy = new Mock<ICharacter>();
             enemy.Setup(x => x.Level).Returns(5);
 
             MovementsDomainService sut = new MovementsDomainService();
@@ -26,10 +27,10 @@ namespace RpgCombatKata.Domain.Services.Tests
         [Fact]
         public void CalculateHitThreshold_WhenEnemyLevelIsSmallerThan5_ReturnsLowerThreshold()
         {
-            Mock<Character> attacker = new Mock<Character>();
+            Mock<ICharacter> attacker = new Mock<ICharacter>();
             attacker.Setup(x => x.Level).Returns(3);
 
-            Mock<Character> enemy = new Mock<Character>();
+            Mock<ICharacter> enemy = new Mock<ICharacter>();
             enemy.Setup(x => x.Level).Returns(8);
 
             MovementsDomainService sut = new MovementsDomainService();
@@ -40,10 +41,10 @@ namespace RpgCombatKata.Domain.Services.Tests
         }
 
         [Fact]
-        public void CalculateHitThreshold_WhenEnemyLevelIsTheRange_ReturnsNormalThreshold()
+        public void CalculateHitThreshold_WhenEnemyLevelIsInTheRange_ReturnsNormalThreshold()
         {
-            Mock<Character> attacker = new Mock<Character>();
-            Mock<Character> enemy = new Mock<Character>();
+            Mock<ICharacter> attacker = new Mock<ICharacter>();
+            Mock<ICharacter> enemy = new Mock<ICharacter>();
 
             MovementsDomainService sut = new MovementsDomainService();
 

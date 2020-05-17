@@ -1,5 +1,6 @@
 using System;
 using RpgCombatKata.Domain.Entities;
+using RpgCombatKata.Domain.Fakes.Tests;
 using Xunit;
 
 namespace RpgCombatKata.Domain.Entities.Tests
@@ -9,7 +10,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         [Fact]
         public void SetDamage_ReturnsSubtractedHealth()
         {
-            Character sut = new Character();
+            FakeCharacter sut = new FakeCharacter();
 
             sut.SetDamage(100);
 
@@ -19,7 +20,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         [Fact]
         public void SetDamage_WhenDamageIsGreaterThanHealth_ReturnsHealthAs0()
         {
-            Character sut = new Character();
+            FakeCharacter sut = new FakeCharacter();
 
             sut.SetDamage(1100);
 
@@ -29,7 +30,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         [Fact]
         public void SetDamage_WhenDamageIsGreaterThanHealth_ReturnsIsAliveAsFalse()
         {
-            Character sut = new Character();
+            FakeCharacter sut = new FakeCharacter();
 
             sut.SetDamage(1100);
 

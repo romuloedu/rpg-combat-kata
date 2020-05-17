@@ -12,18 +12,19 @@ namespace RpgCombatKata.Domain.Services
         /// <param name="damagePoints"></param>
         /// <param name="attacker"></param>
         /// <param name="target"></param>
-        public void Attack(float damagePoints, Character attacker,
-            Character target)
+        public void Attack(float damagePoints, IRangedCharacter attacker,
+            IRangedCharacter target)
         {
-            if (attacker.Equals(target)) return;
+            if (attacker.Equals(target)
+            || !EnemyIsOnRange(attacker, target)) return;
 
             damagePoints *= CalculateHitThreshold(attacker, target);
 
             target.SetDamage(damagePoints);
         }
 
-        public float CalculateHitThreshold(Character attacker,
-            Character target)
+        public float CalculateHitThreshold(ICharacter attacker,
+            ICharacter target)
         {
             int differenceLevel = (int)target.Level - (int)attacker.Level;
 
@@ -39,6 +40,18 @@ namespace RpgCombatKata.Domain.Services
             {
                 return 1.0F;
             }
+        }
+
+        public bool EnemyIsOnRange(IRangedCharacter attacker,
+            IRangedCharacter target)
+        {
+            int differencePosition = (int)(target.Position.X - attacker.Position.X);
+
+            differencePosition = Math.Abs(differencePosition);
+
+            bool isOnRange = attacker.Range >= differencePosition;
+
+            return isOnRange;
         }
     }
 }

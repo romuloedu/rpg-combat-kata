@@ -1,5 +1,4 @@
-using System;
-using RpgCombatKata.Domain.Entities;
+using RpgCombatKata.Domain.Fakes.Tests;
 using Xunit;
 
 namespace RpgCombatKata.Domain.Entities.Tests
@@ -9,7 +8,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         [Fact]
         public void Constructor_WhenInstanceIsCreated_ReturnsHealthPointsAs1000()
         {
-            Character sut = new Character();
+            FakeCharacter sut = new FakeCharacter();
 
             Assert.Equal(1000, sut.HealthPoints);
         }
@@ -17,7 +16,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         [Fact]
         public void Constructor_WhenInstanceIsCreated_ReturnsLevelAs1()
         {
-            Character sut = new Character();
+            FakeCharacter sut = new FakeCharacter();
 
             Assert.Equal<uint>(1, sut.Level);
         }
@@ -25,7 +24,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         [Fact]
         public void Constructor_WhenInstanceIsCreated_ReturnsIsAliveAsTrue()
         {
-            Character sut = new Character();
+            FakeCharacter sut = new FakeCharacter();
 
             Assert.True(sut.IsAlive);
         }

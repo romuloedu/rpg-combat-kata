@@ -1,11 +1,39 @@
 ﻿----- ITERAÇÃO 1 -----
 
-- Os métodos de Cura e Ataque poderiam existir dentro da classe "Character" normalmente visto que a lógica deles ainda não é complexa.
-Entretanto, desmembrei esse objeto e implementei o "MovementsDomainService" para demonstrar a utilização de Serviços do Domínio (DDD).
+- Os métodos de Cura e Ataque poderiam existir dentro da classe "Character" 
+normalmente visto que a lógica deles ainda não é complexa.
+Entretanto, desmembrei esse objeto e implementei o "MovementsDomainService" 
+para demonstrar a utilização de Serviços do Domínio (DDD).
 
 ----- ITERAÇÃO 2 -----
 
-- Alterei o campo HealthPoints para o tipo float visto que, com o cálculo do percentual de dano,
-o valor dos pontos poderá conter decimais.
+- Alterei o campo HealthPoints para o tipo float visto que, com o cálculo do 
+percentual de dano, o valor dos pontos poderá conter decimais.
 
-- Optei por float por não ser necessário altíssima precisão nos dados em questão.
+- Optei por float por não ser necessário altíssima precisão nos dados em 
+questão.
+
+- Ao invés de criar um "SetLevel" na classe "Character" para implementar um teste, 
+optei por mocar o objeto diretamente no teste unitário para demonstrar o uso
+da biblioteca Moq.
+
+----- ITERAÇÃO 3 -----
+
+- Optei por transformar a classe "Character" em abstrata e derivar outras classes
+dela implementando as respectivas particularidades.
+
+- Devido ao motivo anterior, precisei alterar alguns testes e implementei classes
+Fakes no projeto de teste para continuar executando as verificações.
+
+- Mantive os testes com os objetos mockados substituindo apenas a classe concreta
+pela interface que implementa os métodos.
+
+- Essa parte de atacar o inimigo dentro de um raio de alcance ficou meio nebulosa
+para mim. Porém, considerei o jogo acontecendo sobre um tabuleiro e seguindo
+as coordenadas de um plano cartesiano x e y. Entretanto, para efeito de simplificação 
+da lógica no teste, vou usar somente a coordenada x.
+
+- Não implementei a lógica de "andar" dos personagens pois elas não estavam contempladas
+no roteiro da iteração. Entretanto, usei testes do tipo Theory onde pude repassar
+vários que contemplam alguns cenários para verificar se a lógica de verificação
+de inimigo dentro ou fora do raio estava correta.

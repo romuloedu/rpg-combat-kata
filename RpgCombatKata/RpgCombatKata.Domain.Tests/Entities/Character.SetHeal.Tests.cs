@@ -1,5 +1,6 @@
 using System;
 using RpgCombatKata.Domain.Entities;
+using RpgCombatKata.Domain.Fakes.Tests;
 using Xunit;
 
 namespace RpgCombatKata.Domain.Entities.Tests
@@ -9,7 +10,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         [Fact]
         public void SetHeal_ReturnsAddedHealth()
         {
-            Character sut = new Character();
+            FakeCharacter sut = new FakeCharacter();
 
             sut.SetDamage(500);
             sut.SetHeal(100);
@@ -20,7 +21,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         [Fact]
         public void SetHeal_WhenCharacterIsDead_ReturnsHealthAs0()
         {
-            Character sut = new Character();
+            FakeCharacter sut = new FakeCharacter();
 
             sut.SetDamage(1100);
             sut.SetHeal(100);
@@ -31,7 +32,7 @@ namespace RpgCombatKata.Domain.Entities.Tests
         [Fact]
         public void SetHeal_WhenCurePointsIsGreaterThanHealthPoints_ReturnsHealthAs1000Maximum()
         {
-            Character sut = new Character();
+            FakeCharacter sut = new FakeCharacter();
 
             sut.SetHeal(100);
 

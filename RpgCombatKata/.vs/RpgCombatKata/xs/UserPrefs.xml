@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{0938FFE9-768C-404F-AEFE-FB464724AFA0}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RpgCombatKata.Domain.Tests/Services/MovementsDomainService.EnemyIsOnRange.Tests.cs">
+    <Files>
+      <File FileName="RpgCombatKata.Domain.Tests/Services/MovementsDomainService.EnemyIsOnRange.Tests.cs" Line="36" Column="22" />
+      <File FileName="RpgCombatKata.Domain/Services/MovementsDomainService.cs" Line="53" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RpgCombatKata" expanded="True">
+            <Node name="RpgCombatKata.Domain" expanded="True">
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="ValueObjects" expanded="True" />
+            </Node>
+            <Node name="RpgCombatKata.Domain.Tests" expanded="True">
+              <Node name="Fakes" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="MovementsDomainService.EnemyIsOnRange.Tests.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="RpgCombatKata" expanded="True">
+            <Node name="RpgCombatKata.Domain.Tests" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.RpgCombatKata.Domain.Tests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/romuloeduardo/Projetos/ina-rpgcombat-kata/RpgCombatKata/RpgCombatKata.Domain/Services/MovementsDomainService.cs" relfile="RpgCombatKata.Domain/Services/MovementsDomainService.cs" line="47" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

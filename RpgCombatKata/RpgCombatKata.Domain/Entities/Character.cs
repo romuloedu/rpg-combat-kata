@@ -1,8 +1,9 @@
 ﻿using System;
+using RpgCombatKata.Domain.Interfaces;
 
 namespace RpgCombatKata.Domain.Entities
 {
-    public class Character
+    public abstract class Character : ICharacter
     {
         /// <summary>
         /// Character health points.
@@ -25,7 +26,7 @@ namespace RpgCombatKata.Domain.Entities
         /// <summary>
         /// Indicates the strength level of the character.
         /// </summary>
-        public virtual uint Level
+        public uint Level
         {
             get;
             private set;
