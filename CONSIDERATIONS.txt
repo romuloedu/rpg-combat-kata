@@ -55,3 +55,8 @@ em classes menores. Atualmente ela está com mais de uma responsabilidade.
 ----- ITERAÇÃO 5 -----
 
 - Criei um diagrama de classes para auxiliar na refatoração dessa última iteração.
+
+- Refatorei as classes e enxuguei a quantidade de interfaces para segregar por 
+comportamento, conforme sugerido pelas boas práticas de DDD.
+
+- Refatorei as classes de testes para reduzir e clarear os nomes.
